@@ -10,9 +10,7 @@ import Course from "../models/Course.js";
 export const clerkWebhooks = async (req, res) => {
   try {
 
-    console.log("Received Webhook Headers:", req.headers);
-    console.log("Received Webhook Body:", req.body);
-    // Create a Svix instance with clerk webhook secret.
+
     const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET)
 
     // Verifying Headers
@@ -21,7 +19,7 @@ export const clerkWebhooks = async (req, res) => {
       "svix-timestamp": req.headers["svix-timestamp"],
       "svix-signature": req.headers["svix-signature"]
     })
-    console.log("Webhook verified successfully");
+
     // Getting Data from request body
     const { data, type } = req.body
 
@@ -34,7 +32,6 @@ export const clerkWebhooks = async (req, res) => {
           email: data.email_addresses[0].email_address,
           name: data.first_name + " " + data.last_name,
           imageUrl: data.image_url,
-          resume: ''
         }
         console.log("User Created Event Data:", data);
         await User.create(userData)
