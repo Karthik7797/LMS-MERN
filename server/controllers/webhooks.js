@@ -20,7 +20,7 @@ export const clerkWebhooks = async (req, res) => {
       "svix-signature": req.headers["svix-signature"]
     })
 
-    // Getting Data from request body
+    // Getting Data from request body  
     const { data, type } = req.body
 
     // Switch Cases for differernt Events
@@ -32,6 +32,7 @@ export const clerkWebhooks = async (req, res) => {
           email: data.email_addresses[0].email_address,
           name: data.first_name + " " + data.last_name,
           imageUrl: data.image_url,
+          resume:'',
         }
         console.log("User Created Event Data:", data);
         await User.create(userData)
