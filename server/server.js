@@ -17,7 +17,12 @@ await connectDB()
 await connectCloudinary()
 
 // Middlewares
-app.use(cors())
+// app.use(cors())
+app.use(cors({
+  origin: "https://lms-mern-client-theta.vercel.app", // Allow frontend
+  methods: "GET,POST,PUT,DELETE",
+  credentials: true
+}));
 app.use(clerkMiddleware())
 
 // Routes
