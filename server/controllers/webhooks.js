@@ -9,10 +9,10 @@ import Course from "../models/Course.js";
 // API Controller Function to Manage Clerk User with database
 export const clerkWebhooks = async (req, res) => {
   try {
-
+    console.log("1")
 
     const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET)
-
+    console.log("Webhook Data:", req.body);
     // Verifying Headers
     await whook.verify(JSON.stringify(req.body), {
       "svix-id": req.headers["svix-id"],
@@ -32,7 +32,6 @@ export const clerkWebhooks = async (req, res) => {
           email: data.email_addresses[0].email_address,
           name: data.first_name + " " + data.last_name,
           imageUrl: data.image_url,
-          resume:'',
         }
         console.log("User Created Event Data:", data);
         await User.create(userData)

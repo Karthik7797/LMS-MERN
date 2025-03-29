@@ -13,7 +13,8 @@ export const getUserData = async (req, res) => {
         const userId = req.auth.userId
 
         const user = await User.findById(userId)
-        console.log("Auth User ID:", req.auth.userId);
+        // console.log("Auth User ID:", req.auth.userId);
+        // console.log(user);
         if (!user) {
             return res.json({ success: false, message: 'User Not Found 12' })
         }
