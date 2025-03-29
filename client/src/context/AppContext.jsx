@@ -137,11 +137,16 @@ export const AppContextProvider = (props) => {
         fetchAllCourses()
     }, [])
 
+    const logToken = async() => {
+        const token = await getToken()
+        console.log(token)
+    }
     // Fetch User's Data if User is Logged In
     useEffect(() => {
         if (user) {
             fetchUserData()
             fetchUserEnrolledCourses()
+            logToken()
         }
     }, [user])
 
