@@ -18,7 +18,7 @@ const Navbar = () => {
   const { user } = useUser()
 
   const becomeEducator = async () => {
-
+    console.log("Become Educator button clicked!");
     try {
 
       if (isEducator) {
