@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const becomeEducator = async () => {
     console.log("Become Educator button clicked!");
-    console.log(backendUrl + '/api/educator/update-role';)
+    console.log(backendUrl + '/api/educator/update-role');
     try {
 
       if (isEducator) {
