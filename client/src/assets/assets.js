@@ -1,4 +1,4 @@
-import logo from './Normy_black_logo.PNG'
+import logo from './Normy_logo.PNG'
 import logo_dark from './Normy_black_logo.PNG'
 import search_icon from './search_icon.svg'
 import cross_icon from './cross_icon.svg'
